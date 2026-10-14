@@ -1,0 +1,11 @@
+book_id,name,author,publisher,quantity,available
+1,Introduction to Computer Science,Peter Norton,Pearson,10,6
+2,Mathematics for Secondary Schools,John Smith,Longman,15,8
+3,Principles of Physics,David Hall,Macmillan,12,9
+4,English Language Skills,Mary Jones,Oxford,10,7
+5,Geography of Zimbabwe,Robert Moyo,College Press,8,5
+6,Introduction to Biology,Susan Williams,Longman,12,4
+7,Design and Technology,Michael Brown,Cambridge,10,6
+8,History of Zimbabwe,Patrick Ncube,College Press,8,7
+9,Accounting Fundamentals,James Wilson,Longman,10,3
+10,Computer Programming Basics,Daniel Taylor,Pearson,8,2
