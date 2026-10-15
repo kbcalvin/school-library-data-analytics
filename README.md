@@ -128,6 +128,52 @@ The project also includes SQL queries in `sql/analysis_queries.sql`, which can b
 - Develop automated data-quality checks.
 - Improve reporting of inventory demand and late returns.
 
+## Power BI Dashboard
+
+An interactive Power BI dashboard was developed to analyse school library borrowing activity, book availability, and late returns.
+
+### Dashboard Preview
+
+![School Library Analytics Dashboard](powerbi/dashboard.png)
+
+### Key Performance Indicators
+
+| Metric | Result |
+|---|---:|
+| Total Borrowings | 30 |
+| Total Book Titles | 10 |
+| Total Users | 15 |
+| Late Return Rate | 36.67% |
+
+### Dashboard Features
+
+- **Most Borrowed Books:** Identifies the most frequently borrowed textbooks.
+- **Monthly Borrowing Activity:** Displays borrowing trends from January to June 2026.
+- **Book Inventory Availability:** Compares available and unavailable copies.
+- **On-Time vs Late Returns:** Shows the proportion of borrowing transactions returned late.
+- **Interactive Book Filter:** Allows users to explore statistics for individual books.
+
+### Key Insights
+
+- Mathematics for Secondary Schools was the most borrowed title, with 7 borrowing transactions.
+- Introduction to Computer Science ranked second, with 5 transactions.
+- Monthly borrowing activity remained constant at 5 transactions per month.
+- 11 out of 30 borrowing transactions were returned late, representing 36.67%.
+- Computer Programming Basics had 2 available copies out of 8, suggesting that its stock availability may need further investigation.
+
+### Recommendations
+
+1. Monitor demand for frequently borrowed textbooks before making purchasing decisions.
+2. Introduce automated reminders to help reduce late returns.
+3. Review inventory availability regularly to identify potential shortages.
+4. Promote books with low borrowing activity.
+
+### Power BI Report
+
+[Open the Power BI Report](powerbi/School_Library_Analytics.pbix)
+
+**Dataset note:** This project uses synthetic sample data for educational and portfolio demonstration purposes.
+
 ## Author
 
 **Kudakwashe Calvin Bamusi**
