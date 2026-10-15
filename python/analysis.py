@@ -1,13 +1,18 @@
 import pandas as pd
 
 
+
 # ==========================================================
-# LOAD DATA
+# LOAD CLEANED AND VALIDATED DATASETS
 # ==========================================================
 
-books = pd.read_csv("data/books.csv")
-users = pd.read_csv("data/users.csv")
-borrowings = pd.read_csv("data/borrowings.csv")
+books = pd.read_csv("data/cleaned/books_cleaned.csv")
+
+users = pd.read_csv("data/cleaned/users_cleaned.csv")
+
+borrowings = pd.read_csv(
+    "data/cleaned/borrowings_cleaned.csv"
+)
 
 
 # ==========================================================

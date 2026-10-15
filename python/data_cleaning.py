@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path
 
 
 # ==========================================================
@@ -196,3 +197,23 @@ if issues:
         print(f"- {issue}")
 else:
     print("\nAll data quality validation checks passed.")
+
+    # ==========================================================
+# 9. EXPORT VALIDATED DATASETS
+# ==========================================================
+
+if not issues:
+    output_dir = Path("data/cleaned")
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    books.to_csv(output_dir / "books_cleaned.csv", index=False)
+    users.to_csv(output_dir / "users_cleaned.csv", index=False)
+    borrowings.to_csv(
+        output_dir / "borrowings_cleaned.csv",
+        index=False
+    )
+
+    print("\nCleaned datasets exported successfully.")
+    print("Location: data/cleaned/")
+else:
+    print("\nExport cancelled due to data quality issues.")

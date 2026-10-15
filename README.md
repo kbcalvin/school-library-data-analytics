@@ -397,6 +397,14 @@ python python/data_cleaning.py
 ```powershell
 python python/analysis.py
 ```
+### Data Processing Workflow
+
+The project uses a two-stage Python workflow to ensure that analysis is performed on validated datasets.
+
+1. **Data Cleaning:** `data_cleaning.py` loads the original CSV files, checks data quality, calculates borrowing metrics and exports validated datasets to `data/cleaned/`.
+2. **Data Analysis:** `analysis.py` loads the validated datasets and performs exploratory analysis, calculates performance indicators and generates visualisations.
+
+The `data/cleaned/` directory is automatically generated and excluded from Git version control. Run the data-cleaning script before the analysis script when setting up the project.
 
 The analysis script prints the results and generates visualisations in the `visualisations/` folder.
 
