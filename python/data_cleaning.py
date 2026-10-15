@@ -117,3 +117,82 @@ print(borrowings[
         "days_late"
     ]
 ].head(10))
+
+# ==========================================================
+# 8. DATA QUALITY VALIDATION
+# ==========================================================
+
+print("\n" + "=" * 50)
+print("DATA QUALITY VALIDATION")
+print("=" * 50)
+
+issues = []
+
+# Check duplicate primary keys
+for df, key, table_name in [
+    (books, "book_id", "Books"),
+    (users, "user_id", "Users"),
+    (borrowings, "borrowing_id", "Borrowings")
+]:
+    duplicates = df[key].duplicated().sum()
+
+    if duplicates > 0:
+        issues.append(
+            f"{table_name}: {duplicates} duplicate IDs found"
+        )
+
+# Check invalid book references
+invalid_books = ~borrowings["book_id"].isin(books["book_id"])
+
+if invalid_books.any():
+    issues.append(
+        f"{invalid_books.sum()} borrowings reference unknown books"
+    )
+
+# Check invalid user references
+invalid_users = ~borrowings["user_id"].isin(users["user_id"])
+
+if invalid_users.any():
+    issues.append(
+        f"{invalid_users.sum()} borrowings reference unknown users"
+    )
+
+# Check invalid borrowing dates
+invalid_due_dates = (
+    borrowings["due_date"] < borrowings["borrow_date"]
+)
+
+if invalid_due_dates.any():
+    issues.append(
+        f"{invalid_due_dates.sum()} due dates precede borrowing dates"
+    )
+
+invalid_return_dates = (
+    borrowings["date_returned"] < borrowings["borrow_date"]
+)
+
+if invalid_return_dates.any():
+    issues.append(
+        f"{invalid_return_dates.sum()} return dates precede borrowing dates"
+    )
+
+# Check invalid inventory quantities
+invalid_inventory = (
+    (books["quantity"] < 0) |
+    (books["available"] < 0) |
+    (books["available"] > books["quantity"])
+)
+
+if invalid_inventory.any():
+    issues.append(
+        f"{invalid_inventory.sum()} books have invalid inventory values"
+    )
+
+# Display validation results
+if issues:
+    print("\nDATA QUALITY ISSUES FOUND:")
+
+    for issue in issues:
+        print(f"- {issue}")
+else:
+    print("\nAll data quality validation checks passed.")
